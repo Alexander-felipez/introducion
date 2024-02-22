@@ -1,0 +1,82 @@
+es una alternativa diferente para  implementar estructuras de repiticion (ciclos). los modulos se hacen llamadas recursivas 
+
+en vez de hacer un while haremos otra cosa
+
+
+
+(la recursividad va a simplificar nuestro codigo o si no lo hara mas complejo 
+si no lo haces de forma correcta lo degradan ????)
+
+una funcion y dentro de la funcion se llama asi mismo. ej es como darse un like de facebook a si mismo a su propia foto
+
+se componen de:
+ caso base: una solucion simple para un caso particular 
+ caso recursivo: involucra volver a utilizar la funcion original, con parametros que se acercan mas al caso base los pasos que sigue el caso recursivo son los siguientes:
+ 1. el procedimiento se llama a si mismo 
+ 2. el problema se resuelve, tratando el mismo problema pero de tamaño menor 
+ 3. la manera en la cual el tamaño del problema disminuye asegura que el caso base evetualmente se alcanzara
+ 
+ejemplo factorial 
+
+Imagina que tienes tres tipos de frutas: manzanas, plátanos y naranjas. Quieres hacer un arreglo de frutas tomando una de cada tipo para una ensalada de frutas. ¿Cuántas combinaciones diferentes puedes hacer?
+
+Es fácil de calcular:
+
+Tienes 3 opciones para la primera fruta.
+Una vez que has elegido una, te quedan 2 opciones para la segunda fruta.
+Después de elegir dos, solo queda 1 opción para la última fruta.
+Entonces, multiplicamos: 3 opciones x 2 opciones x 1 opción = 6 combinaciones posibles.
+
+Eso significa que puedes hacer 6 combinaciones diferentes de ensalada de frutas utilizando una manzana, un plátano y una naranja de tu selección.
+
+ejemplo factorial recursivo:
+
+Supongamos que queremos calcular el factorial de 5 de forma recursiva.
+
+Empezamos con el número 5.
+Luego, multiplicamos 5 por el factorial del siguiente número menor, que es 4.
+El factorial de 4, a su vez, es 4 multiplicado por el factorial del siguiente número menor, que es 3.
+Continuamos así hasta llegar al factorial de 1, que es simplemente 1.
+Entonces, en términos de pasos:
+
+5! = 5 * 4!
+= 5 * 4 * 3!
+= 5 * 4 * 3 * 2!
+= 5 * 4 * 3 * 2 * 1!
+
+Esto nos da el resultado final del factorial de 5. Es una forma de desglosar el problema en pasos más pequeños y simples. Cada paso se reduce al cálculo del factorial de un número más pequeño, lo que finalmente nos lleva al resultado deseado.
+ 
+
+aqui podemos ver la secuencia que toma la factorial:
+
+
+     {     si N=0 (BASE)
+n! = {
+     {     si N>0(recursiva)
+
+factible de utilizar recursividad 
+* para simplificar el codigo
+* cuando la estructura de datos es recursiva ejemplo: arboles
+
+no facticble utilizar recursividad 
+* cuando los metoso usen arreglos largos 
+* cuando el metodo cambia de manera impredecible de campos 
+* cuando las iteraciones sean la mejor opcion 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
