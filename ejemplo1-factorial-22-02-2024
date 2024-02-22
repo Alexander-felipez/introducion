@@ -1,0 +1,31 @@
+#include <iostream>
+// Incluye la biblioteca estándar de entrada/salida para permitir la entrada/salida estándar.
+
+using namespace std;
+// Usa el espacio de nombres "std", que contiene todas las funciones y objetos estándar de C++.
+
+int factorial (int n) {
+	// Define una función llamada "factorial" que toma un argumento entero "n" y devuelve un entero.
+	
+	int fact = 1;
+	// Inicializa una variable entera "fact" con el valor 1, que almacenará el resultado del factorial.
+	
+	for (int i = 1; i <= n; i++)
+		// Inicia un bucle "for" que comienza con "i" igual a 1, se repite mientras "i" sea menor o igual a "n" y se incrementa "i" en cada iteración.
+		
+		fact = i * fact;
+	// Calcula el factorial multiplicando "i" por "fact" en cada iteración y lo almacena en "fact".
+	
+	return fact;
+	// Devuelve el resultado del factorial.
+}
+
+int main(int argc, char *argv[]) {
+	// Define la función principal "main", que toma argumentos "argc" (el número de argumentos de la línea de comandos) y "argv" (los argumentos de la línea de comandos).
+	
+	cout<<"FACTORIAL:"<<factorial(5)<<endl;
+	// Imprime en la consola el texto "FACTORIAL:" seguido del resultado de llamar a la función "factorial" con el argumento 5. Luego, agrega un salto de línea.
+	
+	return 0;
+	// Indica que el programa se ha ejecutado correctamente y devuelve 0.
+}
