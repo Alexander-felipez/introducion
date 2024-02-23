@@ -1,1 +1,3 @@
 todas las funciones deben estar con sobrecargas, mas que todos las repititivas 2. las funciones de imprimir y buscar deben ser recursivas y no se olviden que las estructuras de usuario y bibliotecario tienen que tener 5 elementos estructura libre de 7 elementos con menu con las opciones 
+
+sin punteros opcional pero bueno
