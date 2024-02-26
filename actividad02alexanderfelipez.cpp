@@ -1,25 +1,3 @@
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <iomanip>  // Biblioteca para manipulación de formato
-
-
-using namespace std;
-
-// Definición de las estructuras
-
-// Estructura para representar un libro
-struct Libro {
-	string strTitulo;
-	string strAutor;
-	string strISBN;
-	int numAnioPublicacion;
-	string strCondicion;
-	string strGenero;
-	string strIdioma;
-	string strRecomendacionEdad;
-};
-
 // Estructura para representar un usuario
 struct Usuario {
 	int numIDUsuario;
@@ -38,13 +16,13 @@ struct Bibliotecario {
 	string strTurnoLaboral;
 };
 
-// Función para generar datos aleatorios para un libro
+// FunciÃ³n para generar datos aleatorios para un libro
 void generarDatos(Libro &libro) {
 	const string titulos[] = {"Aprende C", "Aprende PHP", "Aprende Linux"};
 	const string autores[] = {"Autor1", "Autor2", "Autor3"};
 	const string condiciones[] = {"Nuevo", "Usado - Buen estado", "Coleccionista", "Como nuevo", "Usado - Regular estado"};
-	const string generos[] = {"Misterio", "Ciencia ficción", "Romance", "Realismo mágico", "Fantasía"};
-	const string idiomas[] = {"Inglés", "Español", "Francés", "Alemán", "Italiano"};
+	const string generos[] = {"Misterio", "Ciencia ficciÃ³n", "Romance", "Realismo mÃ¡gico", "FantasÃ­a"};
+	const string idiomas[] = {"InglÃ©s", "EspaÃ±ol", "FrancÃ©s", "AlemÃ¡n", "Italiano"};
 	const string recomendacionesEdad[] = {"12+", "18+", "Todas las edades", "16+", "8+"};
 	
 	libro.strTitulo = titulos[rand() % 3];
@@ -57,8 +35,8 @@ void generarDatos(Libro &libro) {
 	libro.strRecomendacionEdad = recomendacionesEdad[rand() % 5];
 }
 
-// Función para generar datos aleatorios para un usuario
-// Función para generar datos aleatorios para un usuario
+// FunciÃ³n para generar datos aleatorios para un usuario
+// FunciÃ³n para generar datos aleatorios para un usuario
 void generarDatos(Usuario &usuario) {
 	const string nombres[] = {"Juan", "Maria", "Carlos"};
 	const string apellidos[] = {"Gonzalez", "Martinez", "Lopez"};
@@ -72,11 +50,11 @@ void generarDatos(Usuario &usuario) {
 }
 
 
-// Función para generar datos aleatorios para un bibliotecario
+// FunciÃ³n para generar datos aleatorios para un bibliotecario
 void generarDatos(Bibliotecario &bibliotecario) {
 	const string nombres[] = {"alex", "ana", "roberto"};
 	const string apellidos[] = {"vilar", "perez", "mejia"};
-	const string turnos[] = {"Mañana", "Tarde", "Noche"};
+	const string turnos[] = {"MaÃ±ana", "Tarde", "Noche"};
 	
 	bibliotecario.strNombre = nombres[rand() % 3];
 	bibliotecario.strApellido = apellidos[rand() % 3];
@@ -85,44 +63,44 @@ void generarDatos(Bibliotecario &bibliotecario) {
 	bibliotecario.strTurnoLaboral = turnos[rand() % 3];
 }
 
-// Sobrecargas para impresión de datos
+// Sobrecargas para impresiÃ³n de datos
 
-// Función para imprimir datos de un libro
+// FunciÃ³n para imprimir datos de un libro
 void imprimirDatos(const Libro &libro) {
-	cout << "Título: " << libro.strTitulo << endl;
+	cout << "TÃ­tulo: " << libro.strTitulo << endl;
 	cout << "Autor: " << libro.strAutor << endl;
 	cout << "ISBN: " << libro.strISBN << endl;
-	cout << "Año de publicación: " << libro.numAnioPublicacion << endl;
-	cout << "Condición: " << libro.strCondicion << endl;
-	cout << "Género: " << libro.strGenero << endl;
+	cout << "AÃ±o de publicaciÃ³n: " << libro.numAnioPublicacion << endl;
+	cout << "CondiciÃ³n: " << libro.strCondicion << endl;
+	cout << "GÃ©nero: " << libro.strGenero << endl;
 	cout << "Idioma: " << libro.strIdioma << endl;
-	cout << "Recomendación de edad: " << libro.strRecomendacionEdad << endl;
+	cout << "RecomendaciÃ³n de edad: " << libro.strRecomendacionEdad << endl;
 	cout << endl;
 }
 
-// Función para imprimir datos de un usuario
+// FunciÃ³n para imprimir datos de un usuario
 void imprimirDatos(const Usuario &usuario) {
 	cout << "Nombre: " << usuario.strNombre << endl;
 	cout << "Apellido: " << usuario.strApellido << endl;
-	cout << "Correo electrónico: " << usuario.strCorreoElectronico << endl;
+	cout << "Correo electrÃ³nico: " << usuario.strCorreoElectronico << endl;
 	cout << "ID de usuario: " << usuario.numIDUsuario << endl;
-	cout << "Género: " << usuario.strGenero << endl;
+	cout << "GÃ©nero: " << usuario.strGenero << endl;
 	cout << endl;
 }
 
-// Función para imprimir datos de un bibliotecario
+// FunciÃ³n para imprimir datos de un bibliotecario
 void imprimirDatos(const Bibliotecario &bibliotecario) {
 	cout << "Nombre: " << bibliotecario.strNombre << endl;
 	cout << "Apellido: " << bibliotecario.strApellido << endl;
-	cout << "Correo electrónico: " << bibliotecario.strCorreoElectronico << endl;
+	cout << "Correo electrÃ³nico: " << bibliotecario.strCorreoElectronico << endl;
 	cout << "ID de empleado: " << bibliotecario.numIDEmpleado << endl;
 	cout << "Turno laboral: " << bibliotecario.strTurnoLaboral << endl;
 	cout << endl;
 }
 
-// Funciones de búsqueda
+// Funciones de bÃºsqueda
 
-// Función para buscar un libro por título
+// FunciÃ³n para buscar un libro por tÃ­tulo
 void buscarLibroPorTitulo(const Libro libros[], int size, const string &titulo, int index = 0) {
 	if (index < size) {
 		if (libros[index].strTitulo == titulo) {
@@ -133,7 +111,7 @@ void buscarLibroPorTitulo(const Libro libros[], int size, const string &titulo, 
 	}
 }
 
-// Función para buscar un usuario por nombre y apellido
+// FunciÃ³n para buscar un usuario por nombre y apellido
 void buscarUsuarioPorNombreApellido(const Usuario usuarios[], int size, const string &nombre, const string &apellido, int index = 0) {
 	if (index < size) {
 		if (usuarios[index].strNombre == nombre && usuarios[index].strApellido == apellido) {
@@ -144,7 +122,7 @@ void buscarUsuarioPorNombreApellido(const Usuario usuarios[], int size, const st
 	}
 }
 
-// Función para buscar un bibliotecario por nombre y apellido
+// FunciÃ³n para buscar un bibliotecario por nombre y apellido
 void buscarBibliotecarioPorNombreApellido(const Bibliotecario bibliotecarios[], int size, const string &nombre, const string &apellido, int index = 0) {
 	if (index < size) {
 		if (bibliotecarios[index].strNombre == nombre && bibliotecarios[index].strApellido == apellido) {
@@ -157,60 +135,59 @@ void buscarBibliotecarioPorNombreApellido(const Bibliotecario bibliotecarios[], 
 
 // Funciones de listado
 
-// Función para listar libros en formato de tabla
-void listarLibros(const Libro libros[], int size, int index = 0) {
-	if (index < size) {
-		// Usar std::setw para establecer el ancho de las columnas
-		cout << setw(10) << left << "Libro " << setw(30) << left << "Título" << setw(20) << left << "Autor"
-			<< setw(10) << left << "ISBN" << setw(30) << left << "Año de publicación"
-			<< setw(30) << left << "Condición" << setw(30) << left << "Género"
-			<< setw(30) << left << "Idioma" << setw(30) << left << "Recomendación de edad" << endl;
-		
-		cout << setw(10) << left << index + 1 << setw(30) << left << libros[index].strTitulo
-			<< setw(20) << left << libros[index].strAutor << setw(10) << left << libros[index].strISBN
-			<< setw(30) << left << libros[index].numAnioPublicacion
-			<< setw(30) << left << libros[index].strCondicion << setw(30) << left << libros[index].strGenero
-			<< setw(30) << left << libros[index].strIdioma << setw(30) << left << libros[index].strRecomendacionEdad << endl;
-		
-		listarLibros(libros, size, index + 1);
+// FunciÃ³n para listar libros en formato de tabla
+void listarLibros(const Libro libros[], int size) {
+	// Usar std::setw para establecer el ancho de las columnas
+	cout << setw(10) << left << "Libro " << setw(30) << left << "TÃ­tulo" << setw(20) << left << "Autor"
+		<< setw(10) << left << "ISBN" << setw(30) << left << "AÃ±o de publicaciÃ³n"
+		<< setw(30) << left << "CondiciÃ³n" << setw(30) << left << "GÃ©nero"
+		<< setw(30) << left << "Idioma" << setw(30) << left << "RecomendaciÃ³n de edad" << endl;
+	
+	// Imprimir datos de libros
+	for (int i = 0; i < size; ++i) {
+		cout << setw(10) << left << i + 1 << setw(30) << left << libros[i].strTitulo
+			<< setw(20) << left << libros[i].strAutor << setw(10) << left << libros[i].strISBN
+			<< setw(30) << left << libros[i].numAnioPublicacion
+			<< setw(30) << left << libros[i].strCondicion << setw(30) << left << libros[i].strGenero
+			<< setw(30) << left << libros[i].strIdioma << setw(30) << left << libros[i].strRecomendacionEdad << endl;
 	}
 }
 
-// Función para listar usuarios en formato de tabla
-void listarUsuarios(const Usuario usuarios[], int size, int index = 0) {
-	if (index < size) {
-		// Usar std::setw para establecer el ancho de las columnas
-		cout << setw(10) << left << "Usuario" << setw(20) << left << "Nombre" << setw(20) << left << "Apellido"
-			<< setw(30) << left << "Correo Electrónico" << setw(20) << left << "ID de Usuario" << setw(30) << left << "Género" << endl;
-		
-		cout << setw(10) << left << index + 1 << setw(20) << left << usuarios[index].strNombre
-			<< setw(20) << left << usuarios[index].strApellido << setw(30) << left << usuarios[index].strCorreoElectronico
-			<< setw(20) << left << usuarios[index].numIDUsuario << setw(30) << left << usuarios[index].strGenero << endl;
-		
-		listarUsuarios(usuarios, size, index + 1);
+
+// FunciÃ³n para listar usuarios en formato de tabla
+void listarUsuarios(const Usuario usuarios[], int size) {
+	// Usar std::setw para establecer el ancho de las columnas
+	cout << setw(10) << left << "Usuario" << setw(20) << left << "Nombre" << setw(20) << left << "Apellido"
+		<< setw(30) << left << "Correo ElectrÃ³nico" << setw(20) << left << "ID de Usuario" << setw(30) << left << "GÃ©nero" << endl;
+	
+	// Imprimir datos de usuarios
+	for (int i = 0; i < size; ++i) {
+		cout << setw(10) << left << i + 1 << setw(20) << left << usuarios[i].strNombre
+			<< setw(20) << left << usuarios[i].strApellido << setw(30) << left << usuarios[i].strCorreoElectronico
+			<< setw(20) << left << usuarios[i].numIDUsuario << setw(30) << left << usuarios[i].strGenero << endl;
 	}
 }
 
-// Función para listar bibliotecarios en formato de tabla
-void listarBibliotecarios(const Bibliotecario bibliotecarios[], int size, int index = 0) {
-	if (index < size) {
-		// Usar std::setw para establecer el ancho de las columnas
-		cout << setw(15) << left << "Bibliotecario" << setw(20) << left << "Nombre" << setw(20) << left << "Apellido"
-			<< setw(30) << left << "Correo Electrónico" << setw(20) << left << "ID de Empleado" << setw(30) << left << "Turno Laboral" << endl;
-		
-		cout << setw(15) << left << index + 1 << setw(20) << left << bibliotecarios[index].strNombre
-			<< setw(20) << left << bibliotecarios[index].strApellido << setw(30) << left << bibliotecarios[index].strCorreoElectronico
-			<< setw(20) << left << bibliotecarios[index].numIDEmpleado << setw(30) << left << bibliotecarios[index].strTurnoLaboral << endl;
-		
-		listarBibliotecarios(bibliotecarios, size, index + 1);
+// FunciÃ³n para listar bibliotecarios en formato de tabla
+void listarBibliotecarios(const Bibliotecario bibliotecarios[], int size) {
+	// Usar std::setw para establecer el ancho de las columnas
+	cout << setw(15) << left << "Bibliotecario" << setw(20) << left << "Nombre" << setw(20) << left << "Apellido"
+		<< setw(30) << left << "Correo ElectrÃ³nico" << setw(20) << left << "ID de Empleado" << setw(30) << left << "Turno Laboral" << endl;
+	
+	// Imprimir datos de bibliotecarios
+	for (int i = 0; i < size; ++i) {
+		cout << setw(15) << left << i + 1 << setw(20) << left << bibliotecarios[i].strNombre
+			<< setw(20) << left << bibliotecarios[i].strApellido << setw(30) << left << bibliotecarios[i].strCorreoElectronico
+			<< setw(20) << left << bibliotecarios[i].numIDEmpleado << setw(30) << left << bibliotecarios[i].strTurnoLaboral << endl;
 	}
 }
-// Función principal
+
+// FunciÃ³n principal
 int main() {
-	// Inicializar la semilla para la generación de números aleatorios
+	// Inicializar la semilla para la generaciÃ³n de nÃºmeros aleatorios
 	srand(time(0));
 	
-	// Número de libros, usuarios y bibliotecarios
+	// NÃºmero de libros, usuarios y bibliotecarios
 	const int numLibros = 3;
 	const int numUsuarios = 3;
 	const int numBibliotecarios = 3;
@@ -220,21 +197,21 @@ int main() {
 	Usuario usuarios[numUsuarios];
 	Bibliotecario bibliotecarios[numBibliotecarios];
 	
-	// Variable para almacenar la opción del menú principal
+	// Variable para almacenar la opciÃ³n del menÃº principal
 	int opcion;
 	
-	// Menú principal
+	// MenÃº principal
 	do {
-		// Mostrar opciones del menú principal
+		// Mostrar opciones del menÃº principal
 		cout << "Menu Principal" << endl;
 		cout << "1) Llenado de datos" << endl;
 		cout << "2) Listados" << endl;
-		cout << "3) Búsquedas" << endl;
+		cout << "3) BÃºsquedas" << endl;
 		cout << "0) Salir" << endl;
-		cout << "Seleccione su opción: ";
+		cout << "Seleccione su opciÃ³n: ";
 		cin >> opcion;
 		
-		// Procesar la opción seleccionada
+		// Procesar la opciÃ³n seleccionada
 		switch (opcion) {
 		case 1:
 			// Llenado de datos aleatorios para libros, usuarios y bibliotecarios
@@ -250,19 +227,19 @@ int main() {
 			cout << "Datos llenados exitosamente." << endl;
 			break;
 		case 2:
-			// Menú de listados
+			// MenÃº de listados
 			char opcionListados;
 			do {
-				// Mostrar opciones del menú de listados
+				// Mostrar opciones del menÃº de listados
 				cout << "Submenu Listados" << endl;
 				cout << "A) Listado de Libros" << endl;
 				cout << "B) Listado Usuarios" << endl;
 				cout << "C) Listado Bibliotecarios" << endl;
 				cout << "X) Salir" << endl;
-				cout << "Seleccione su opción: ";
+				cout << "Seleccione su opciÃ³n: ";
 				cin >> opcionListados;
 				
-				// Procesar la opción de listados
+				// Procesar la opciÃ³n de listados
 				switch (opcionListados) {
 				case 'A':
 					// Listado de libros
@@ -279,39 +256,39 @@ int main() {
 				case 'X':
 					break;
 				default:
-					// Opción no válida
-					cout << "Opción no válida. Intente de nuevo." << endl;
+					// OpciÃ³n no vÃ¡lida
+					cout << "OpciÃ³n no vÃ¡lida. Intente de nuevo." << endl;
 				}
 			} while (opcionListados != 'X');
 			break;
 			
 		case 3:
-			// Menú de búsquedas
+			// MenÃº de bÃºsquedas
 			char opcionBusquedas;
 			do {
-				// Mostrar opciones del menú de búsquedas
-				cout << "Submenu Búsquedas" << endl;
-				cout << "A) Búsqueda de Libro (Título)" << endl;
-				cout << "B) Listado Búsqueda de Usuario (Nombre y Apellido)" << endl;
-				cout << "C) Búsqueda de Bibliotecario (Nombre y Apellido)" << endl;
+				// Mostrar opciones del menÃº de bÃºsquedas
+				cout << "Submenu BÃºsquedas" << endl;
+				cout << "A) BÃºsqueda de Libro (TÃ­tulo)" << endl;
+				cout << "B) Listado BÃºsqueda de Usuario (Nombre y Apellido)" << endl;
+				cout << "C) BÃºsqueda de Bibliotecario (Nombre y Apellido)" << endl;
 				cout << "X) Salir" << endl;
-				cout << "Seleccione su opción: ";
+				cout << "Seleccione su opciÃ³n: ";
 				cin >> opcionBusquedas;
 				
-				// Procesar la opción de búsquedas
+				// Procesar la opciÃ³n de bÃºsquedas
 				switch (opcionBusquedas) {
 				case 'A':
-					// Búsqueda de libro por título
+					// BÃºsqueda de libro por tÃ­tulo
 				{
 					string titulo;
-					cout << "Ingrese el título del libro a buscar: ";
+					cout << "Ingrese el tÃ­tulo del libro a buscar: ";
 					cin.ignore();
 					getline(cin, titulo);
 					buscarLibroPorTitulo(libros, numLibros, titulo);
 				}
 				break;
 				case 'B':
-					// Listado de búsqueda de usuario por nombre y apellido
+					// Listado de bÃºsqueda de usuario por nombre y apellido
 				{
 					string nombre, apellido;
 					cout << "Ingrese el nombre del usuario a buscar: ";
@@ -322,7 +299,7 @@ int main() {
 				}
 				break;
 				case 'C':
-					// Búsqueda de bibliotecario por nombre y apellido
+					// BÃºsqueda de bibliotecario por nombre y apellido
 				{
 					string nombre, apellido;
 					cout << "Ingrese el nombre del bibliotecario a buscar: ";
@@ -335,8 +312,8 @@ int main() {
 				case 'X':
 					break;
 				default:
-					// Opción no válida
-					cout << "Opción no válida. Intente de nuevo." << endl;
+					// OpciÃ³n no vÃ¡lida
+					cout << "OpciÃ³n no vÃ¡lida. Intente de nuevo." << endl;
 				}
 			} while (opcionBusquedas != 'X');
 			break;
@@ -347,11 +324,10 @@ int main() {
 			break;
 			
 		default:
-			// Opción no válida
-			cout << "Opción no válida. Intente de nuevo." << endl;
+			// OpciÃ³n no vÃ¡lida
+			cout << "OpciÃ³n no vÃ¡lida. Intente de nuevo." << endl;
 		}
 	} while (opcion != 0);
 	
 	return 0;
 }
-
