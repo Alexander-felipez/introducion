@@ -1,0 +1,14 @@
+los ambientes de trabajo son los frework 
+que es un objeto: unida de software que  contiene una coleccion de datos y procedimiento interrelacionados 
+pueden existir objectos iguales pero no son el mismo objecto 
+metodos: es como se va  a comportar 
+las clases son las definicones del concepto de  estructura 
+una clase es un prototipo que nos va  a definir  metodos y datos 
+las clases es el molde, el objeto es la masa.
+la instancia el uso de un objeto no esta almacenado en el disco duro.
+encapsulamiento por medio del cual, un objeto esconde sus datos y metodos al mundo exterior .
+la clase nose implementan son estructura, los objetos son instancia de las clases.
+privado hablamos de  encapsulamiento 
+protegido se puede interactuar con algunos elementos 
+el constructor tiene el mismo nombre de la clase
+destructor la virrulilla antes del nombre de la clase
