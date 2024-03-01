@@ -1,0 +1,100 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+class ejemplo {
+private:
+    int iprivado, isegundo; // Atributos privados de la clase
+public:
+    // Constructor que inicializa los atributos
+    ejemplo() {
+        iprivado = 0;
+        isegundo = 0;
+    }
+    
+    ejemplo(int valor, int valor2) {
+        iprivado = valor;
+        isegundo = valor2;
+    }
+    
+    int get_iprivado() const {
+        return iprivado;
+    }
+    
+    int get_isegundo() const {
+        return isegundo;
+    }
+    
+    void set_iprivado(int valor) {
+        if (valor > 0)
+            iprivado = valor;
+    }
+    
+    void set_isegundo(int valor) {
+        if (valor > 0)
+            isegundo = valor;
+    }
+    
+    void set_ejemplo(int valor, int valor2) {
+        if (valor > 0 && valor2 > 0) {
+            iprivado = valor;
+            isegundo = valor2;
+        }
+    }
+};
+
+// Función para llenar el array de objetos con valores aleatorios
+void llenarArray(ejemplo arr[], int tam) {
+    for (int i = 0; i < tam; ++i) {
+        arr[i].set_iprivado(rand() % 100 + 1); // Genera un número aleatorio entre 1 y 100 para iprivado
+        arr[i].set_isegundo(rand() % 200 + 1); // Genera un número aleatorio entre 1 y 200 para isegundo
+    }
+}
+// Función para imprimir los valores de los objetos en el array
+void imprimirArray(const ejemplo arr[], int tam) {
+    for (int i = 0; i < tam; ++i) {
+        cout << "Objeto " << i + 1 << ": iprivado = " << arr[i].get_iprivado();
+        cout << ", isegundo = " << arr[i].get_isegundo() << endl;
+    }
+}
+
+// Función para encontrar el mayor valor para iprivado
+int encontrarMayorIprivado(const ejemplo arr[], int tam) {
+    int mayor_iprivado = arr[0].get_iprivado();
+    for (int i = 1; i < tam; ++i) {
+        if (arr[i].get_iprivado() > mayor_iprivado) {
+            mayor_iprivado = arr[i].get_iprivado();
+        }
+    }
+    return mayor_iprivado;
+}
+
+// Función para encontrar el mayor valor para isegundo
+int encontrarMayorIsegundo(const ejemplo arr[], int tam) {
+    int mayor_isegundo = arr[0].get_isegundo();
+    for (int i = 1; i < tam; ++i) {
+        if (arr[i].get_isegundo() > mayor_isegundo) {
+            mayor_isegundo = arr[i].get_isegundo();
+        }
+    }
+    return mayor_isegundo;
+}
+
+int main(int argc, char *argv[]) {
+    const int TAM = 20;
+    ejemplo arrObjeto[TAM];
+    
+    llenarArray(arrObjeto, TAM);
+    
+    cout << "Valores de los objetos en el array:" << endl;
+    imprimirArray(arrObjeto, TAM);
+    
+    int mayor_iprivado = encontrarMayorIprivado(arrObjeto, TAM);
+    cout << "El mayor valor para iprivado es: " << mayor_iprivado << endl;
+    
+    int mayor_isegundo = encontrarMayorIsegundo(arrObjeto, TAM);
+    cout << "El mayor valor para isegundo es: " << mayor_isegundo << endl;
+    
+    return 0;
+}
+
