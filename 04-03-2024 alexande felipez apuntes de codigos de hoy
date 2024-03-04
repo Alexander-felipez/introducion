@@ -1,0 +1,158 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+#include <algorithm> 
+
+using namespace std;
+
+// Definición de la clase persona
+class Persona {
+	string nombre, direccion;
+	
+public:
+	// Constructor de la clase persona
+	Persona() {
+		nombre = "Anónimo";
+		direccion = "Sin dirección";
+	}
+	
+	// Métodos de acceso para obtener el nombre y la dirección
+	string getNombre() { return nombre; }
+	string getDireccion() { return direccion; }
+	
+	// Métodos de modificación para establecer el nombre y la dirección
+	void setNombre(string n) { nombre = n; }
+	void setDireccion(string d) { direccion = d; }
+	
+	// Método para mostrar los datos de la persona
+	void mostrarDatos() {
+		cout << setw(30) << left << getNombre()
+			<< setw(30) << left << getDireccion() << endl;
+	}
+};
+
+// Definición de la clase estudiante, que hereda de Persona
+class Estudiante : public Persona {
+	string cod_estudiante;
+	string carrera;
+	
+public:
+	// Constructor de la clase estudiante
+	Estudiante() {
+		cod_estudiante = generarCodigoEstudiante();
+		carrera = "Sin nombre de carrera";
+	}
+	
+	// Método para generar un código de estudiante aleatorio
+	string generarCodigoEstudiante() {
+		string id;
+		for (int i = 0; i < 6; ++i) {
+			char digit = '0' + rand() % 10; // Generar un dígito aleatorio entre '0' y '9'
+			id.push_back(digit);
+		}
+		return id;
+	}
+	
+	// Métodos de acceso para obtener el código de estudiante y la carrera
+	string getCodigoEstudiante() { return cod_estudiante; }
+	string getCarrera() { return carrera; }
+	
+	// Método de modificación para establecer la carrera
+	void setCarrera(string ca) { carrera = ca; }
+	
+	// Método para mostrar los datos del estudiante
+	void mostrarDatos() {
+		cout << setw(12) << left << getCodigoEstudiante()
+			<< setw(30) << left << getNombre()
+			<< setw(20) << left << getCarrera()
+			<< setw(10) << left << getDireccion() << endl;
+	}
+};
+
+// Función para convertir una cadena a minúsculas
+string toLowerCase(string str) {
+	transform(str.begin(), str.end(), str.begin(), ::tolower);
+	return str;
+}
+
+// Método para llenar y mostrar estudiantes aleatoriamente
+void llenarYMostrarEstudiantes(Estudiante estudiantes[], const string nombres[], const string apellidos[], const string direcciones[], const string carreras[], int tam) {
+	srand(time(nullptr)); // Semilla para generar números aleatorios
+	
+	int cantidadEstudiantes = 0;
+	for (int i = 0; i < tam; ++i) {
+		if (cantidadEstudiantes < tam) {
+			int indiceNombre = rand() % 20;
+			int indiceApellido = rand() % 20;
+			int indiceDireccion = rand() % 20;
+			int indiceCarrera = rand() % 10;
+			
+			estudiantes[i].setNombre(nombres[indiceNombre] + " " + apellidos[indiceApellido]);
+			estudiantes[i].setDireccion(direcciones[indiceDireccion]);
+			estudiantes[i].setCarrera(carreras[indiceCarrera]);
+			++cantidadEstudiantes;
+		}
+	}
+	
+	// Mostrar los estudiantes llenados aleatoriamente
+	cout << "\nEstudiantes llenados aleatoriamente:\n";
+	cout << setw(12) << left << "ID"
+		<< setw(30) << left << "Nombre"
+		<< setw(20) << left << "Carrera"
+		<< setw(10) << left << "Dirección" << endl;
+	for (int i = 0; i < cantidadEstudiantes; ++i) {
+		estudiantes[i].mostrarDatos();
+	}
+}
+
+int main() {
+	// Arrays de nombres, apellidos, direcciones y carreras
+	string nombres[] = {"Juan", "Maria", "Pedro", "Ana", "Luis", "Carla", "Diego", "Laura", "Carlos", "Sofia",
+		"David", "Elena", "Miguel", "Lucia", "Pablo", "Valeria", "Alejandro", "Daniela", "Fernando", "Julia"};
+	string apellidos[] = {"Perez", "Gomez", "Lopez", "Rodriguez", "Martinez", "Sanchez", "Gonzalez", "Romero", "Diaz", "Hernandez",
+		"Torres", "Fernandez", "Garcia", "Vazquez", "Rios", "Ruiz", "Navarro", "Molina", "Alvarez", "Jimenez"};
+	string direcciones[] = {"Av. Beni 123", "Calle Bella Flor 456", "Av. Simon Lopez 789", "Calle 6 de Agosto 1011", "Av. Paurito 1213",
+		"Calle Bolivar 1415", "Av. Heroes del Chaco 1617", "Calle Ballivian 1819", "Av. Busch 2021", "Calle Murillo 2223",
+		"Av. Montes 2425", "Calle Jordán 2627", "Av. Las Americas 2829", "Calle La Paz 3031", "Av. Juan Pablo II 3233",
+		"Calle 16 de Noviembre 3435", "Av. El Trompillo 3637", "Calle Sucre 3839", "Av. Banzer 4041", "Calle Tres Pasos al Frente 4243"};
+	string carreras[] = {"Ing. de Sistemas", "Derecho", "Medicina", "Arquitectura", "Economía", "Biología", "Química", "Psicología",
+		"Abogado", "Ingeniería Civil"};
+	
+	const int tam = 5;
+	Estudiante *estudiantes = new Estudiante[tam]; // Crear un arreglo dinámico de estudiantes
+	
+	int opcion;
+	do {
+		// Menú principal
+		cout << "\nMENU:\n";
+		cout << "1. Llenar y mostrar estudiantes aleatoriamente\n";
+		cout << "2. Buscar estudiantes por dirección\n";
+		cout << "3. Salir\n";
+		cout << "Ingrese su opción: ";
+		cin >> opcion;
+		
+		switch (opcion) {
+		case 1:
+			// Llenar y mostrar estudiantes aleatoriamente
+			llenarYMostrarEstudiantes(estudiantes, nombres, apellidos, direcciones, carreras, tam);
+			break;
+		case 2:
+			// Implementar búsqueda por dirección
+			cout << "Funcionalidad aún no implementada.\n";
+			break;
+		case 3:
+			cout << "Saliendo del programa.\n";
+			break;
+		default:
+			cout << "Opción inválida. Por favor, ingrese una opción válida.\n";
+			break;
+		}
+	} while (opcion != 3);
+	
+	// Liberar la memoria reservada con delete[]
+	delete[] estudiantes;
+	
+	return 0;
+}
